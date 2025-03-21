@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-night-dark text-text-primary min-h-screen;
+  }
+
+  main {
+    @apply min-h-[calc(100vh-4rem)] bg-gradient-to-br from-night-dark via-night-purple to-secondary relative overflow-hidden;
+  }
+
+  /* Add grid pattern and gradient overlay to all main sections */
+  main::before {
+    @apply content-[''] absolute inset-0 bg-[url('/grid.svg')] opacity-10;
+  }
+
+  main::after {
+    @apply content-[''] absolute inset-0 bg-gradient-radial from-accent/10 via-transparent to-transparent;
+  }
+
+  /* Base link styles */
+  a {
+    @apply text-text-secondary hover:text-accent transition-colors duration-200 cursor-pointer;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-text-secondary hover:text-accent transition-colors duration-200;
+  }
+  
+  .section-title {
+    @apply text-3xl font-semibold text-text-primary mb-6 relative;
+  }
+  
+  .section-title::after {
+    @apply content-[''] absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-accent to-primary rounded-full;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-2 bg-gradient-to-r from-accent to-primary text-text-primary rounded-lg hover:shadow-lg hover:shadow-accent/25 hover:scale-105 transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-secondary/50 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-night-light/10 hover:shadow-xl hover:border-night-light/20 transition-all duration-200;
+  }
+
+  .page-container {
+    @apply max-w-6xl mx-auto px-4 py-12 relative z-10;
+  }
+
+  /* Social link styles */
+  .social-link {
+    @apply flex items-center gap-3 p-3 rounded-lg hover:bg-accent/10 transition-all duration-200;
+  }
+} 
